@@ -1,0 +1,252 @@
+/* =============================================
+   ServiceNow Incident Form — Stylesheet
+   ============================================= */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background-color: #f0f2f5;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding: 40px 16px;
+  color: #1d2025;
+}
+
+/* ---------- Card ---------- */
+.card {
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.10);
+  width: 100%;
+  max-width: 560px;
+  overflow: hidden;
+}
+
+.card-header {
+  background: #293e40;
+  color: #ffffff;
+  padding: 28px 32px 24px;
+}
+
+.card-header h1 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.card-header .subtitle {
+  margin-top: 6px;
+  font-size: 0.875rem;
+  color: #b0c4c6;
+}
+
+/* ---------- Form ---------- */
+form {
+  padding: 28px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  position: relative;
+}
+
+label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #3d444d;
+}
+
+.required {
+  color: #c0392b;
+  margin-left: 2px;
+}
+
+input[type="text"],
+select {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1.5px solid #cdd2d8;
+  border-radius: 5px;
+  font-size: 0.95rem;
+  color: #1d2025;
+  background: #fafbfc;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  outline: none;
+  appearance: none;
+}
+
+input[type="text"]:focus,
+select:focus {
+  border-color: #0062a3;
+  box-shadow: 0 0 0 3px rgba(0, 98, 163, 0.15);
+  background: #ffffff;
+}
+
+input.invalid,
+select.invalid {
+  border-color: #c0392b;
+  box-shadow: 0 0 0 3px rgba(192, 57, 43, 0.12);
+}
+
+/* Select custom arrow */
+.select-wrapper {
+  position: relative;
+}
+
+.select-wrapper::after {
+  content: "▾";
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: #6b7280;
+  font-size: 1rem;
+}
+
+.select-wrapper select {
+  padding-right: 36px;
+  cursor: pointer;
+}
+
+/* Char counter */
+.char-count {
+  font-size: 0.75rem;
+  color: #8a9299;
+  text-align: right;
+  margin-top: 2px;
+}
+
+/* Field errors */
+.field-error {
+  font-size: 0.78rem;
+  color: #c0392b;
+  min-height: 16px;
+}
+
+/* ---------- Submit button ---------- */
+.btn-submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 8px;
+  padding: 12px 20px;
+  background: #0062a3;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.btn-submit:hover:not(:disabled) {
+  background: #004f84;
+}
+
+.btn-submit:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.btn-submit:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+/* Spinner */
+.btn-spinner {
+  width: 18px;
+  height: 18px;
+  border: 2.5px solid rgba(255, 255, 255, 0.4);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: spin 0.75s linear infinite;
+  display: inline-block;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ---------- Alert ---------- */
+.alert {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin: 0 32px 28px;
+  padding: 14px 16px;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  position: relative;
+}
+
+.alert.success {
+  background: #eafaf1;
+  border-left: 4px solid #27ae60;
+  color: #1e6e3d;
+}
+
+.alert.error {
+  background: #fdf0ef;
+  border-left: 4px solid #c0392b;
+  color: #922b21;
+}
+
+.alert-content {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  flex: 1;
+}
+
+.alert-content strong {
+  font-weight: 700;
+}
+
+#alertIcon {
+  font-size: 1.1rem;
+  line-height: 1.4;
+}
+
+.alert-close {
+  background: transparent;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: inherit;
+  opacity: 0.6;
+  padding: 0 4px;
+  line-height: 1;
+}
+
+.alert-close:hover {
+  opacity: 1;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 420px) {
+  .card-header,
+  form {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .alert {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+}

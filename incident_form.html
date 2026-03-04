@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Crea Incident</title>
+  <link rel="stylesheet" href="incident_form.css" />
+</head>
+<body>
+  <div class="card">
+    <div class="card-header">
+      <h1>Crea Nuovo Incident</h1>
+      <p class="subtitle">Compila il modulo per aprire un incident nel sistema</p>
+    </div>
+
+    <form id="incidentForm" novalidate>
+      <div class="form-group">
+        <label for="shortDescription">
+          Short Description <span class="required">*</span>
+        </label>
+        <input
+          type="text"
+          id="shortDescription"
+          name="shortDescription"
+          placeholder="Descrivi brevemente il problema..."
+          maxlength="160"
+          autocomplete="off"
+        />
+        <span class="field-error" id="shortDescriptionError"></span>
+        <span class="char-count" id="charCount">0 / 160</span>
+      </div>
+
+      <div class="form-group">
+        <label for="priority">
+          Priority <span class="required">*</span>
+        </label>
+        <div class="select-wrapper">
+          <select id="priority" name="priority">
+            <option value="">-- Seleziona la priorità --</option>
+            <option value="1">1 - Critica</option>
+            <option value="2">2 - Alta</option>
+            <option value="3">3 - Moderata</option>
+            <option value="4">4 - Bassa</option>
+            <option value="5">5 - Pianificazione</option>
+          </select>
+        </div>
+        <span class="field-error" id="priorityError"></span>
+      </div>
+
+      <button type="submit" id="submitBtn" class="btn-submit">
+        <span class="btn-text">Crea Incident</span>
+        <span class="btn-spinner" id="spinner" hidden></span>
+      </button>
+    </form>
+
+    <div id="alertBox" class="alert" hidden>
+      <span id="alertIcon"></span>
+      <div class="alert-content">
+        <strong id="alertTitle"></strong>
+        <span id="alertMessage"></span>
+      </div>
+      <button class="alert-close" id="alertClose" aria-label="Chiudi">&times;</button>
+    </div>
+  </div>
+
+  <script src="incident_form.js"></script>
+</body>
+</html>
