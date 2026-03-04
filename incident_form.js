@@ -14,6 +14,8 @@
 
   /* ── Configurazione ──────────────────────────────────────────── */
   const API_ENDPOINT = "/api/now/table/incident";
+  const SN_USER      = "admin";   // ← modifica con il tuo username
+  const SN_PASS      = "admin";   // ← modifica con la tua password
 
   /* ── Riferimenti DOM ─────────────────────────────────────────── */
   const form             = document.getElementById("incidentForm");
@@ -93,6 +95,7 @@
 
     const xhr = new XMLHttpRequest();
     xhr.open("POST", API_ENDPOINT, true);
+    xhr.setRequestHeader("Authorization", "Basic " + btoa(SN_USER + ":" + SN_PASS));
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.setRequestHeader("Accept", "application/json");
 
